@@ -15,6 +15,9 @@ var cursors;
 
 var bulletTime = 0;
 var bullet;
+var score = 0;
+var score_text;
+
 
 function create() {
 
@@ -53,6 +56,9 @@ function create() {
     cursors = game.input.keyboard.createCursorKeys();
     game.input.keyboard.addKeyCapture([ Phaser.Keyboard.SPACEBAR ]);
 
+    score_text = game.add.text(0, 0, '', { font: 'bold 20px Courier New', fill: '#fff', boundsAlignH: 'right' });
+    score_text.setTextBounds(0, 5, game.world.width - 5, 20);
+
 }
 
 function update() {
@@ -76,6 +82,8 @@ function update() {
     {
         fireBullet();
     }
+
+    score_text.text = '$' + score;
 
 }
 
@@ -107,5 +115,6 @@ function collisionHandler (bullet, veg) {
 
     bullet.kill();
     veg.kill();
+    score += 1;
 
 }
