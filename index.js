@@ -78,6 +78,15 @@ function update() {
         sprite.body.velocity.x = 300;
     }
 
+    if (cursors.up.isDown)
+    {
+        sprite.body.velocity.y = -300;
+    }
+    else if (cursors.down.isDown)
+    {
+        sprite.body.velocity.y = 300;
+    }
+
     if (game.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR))
     {
         fireBullet();
